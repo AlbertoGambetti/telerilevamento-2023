@@ -47,6 +47,30 @@ par(mfrow=c(2,1))
 plot(l2011[[3]], col=cl)
 plot(l2011[[4]], col=cl)
 
+dev.off()
+
+#plotting the first 4 layers
+par(mfrow=c(2,2))
+
+#blue
+clb<- colorRampPalette(c("blue4", "blue2", "lightblue")) (100)
+plot(l2011[[1]], col=clb)
+
+#green
+clg<- colorRampPalette(c("chartreuse4", "chartreuse2", "chartreuse")) (100)
+plot(l2011[[2]], col=clg)
+
+#red
+clr<- colorRampPalette(c("red4", "red2", "red")) (100)
+plot(l2011[[3]], col=clr)
+
+#NIR
+cln<- colorRampPalette(c("darkblue", "darkorchid2", "darkorchid")) (100)
+plot(l2011[[4]], col=cln)
+
+dev.off()
+
+
 
 
 
