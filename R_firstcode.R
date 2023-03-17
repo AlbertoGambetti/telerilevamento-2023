@@ -81,8 +81,14 @@ par(mfrow=c(2,1))
 plotRGB(l2011, r=3, g=2, b=1, stretch="lin")
 plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
 
+#histogram stretching 
 par(mfrow=c(2,1))
 plotRGB(l2011, r=3, g=2, b=1, stretch="hist")
+plotRGB(l2011, r=4, g=3, b=2, stretch="hist")
+
+#stretch linear vs stretche histogram 
+par(mfrow=c(2,1))
+plotRGB(l2011, r=4, g=2, b=1, stretch="lin")
 plotRGB(l2011, r=4, g=3, b=2, stretch="hist")
 
 
