@@ -72,6 +72,11 @@ dev.off()
 
 # RGB plotting
 plotRGB(l2011, r=3, g=2, b=1, stretch="lin") #lultimo parametro stretch serve oer allargare la gamma dei valori visualizzati
+plotRGB(l2011, r=4, g=3, b=2, stretch="lin")# ho assegnato la banda 4 degli infrarossi alla componente red.
+plotRGB(l2011, r=3, g=4, b=2, stretch="lin")# ho assegnato la banda 4 degli infrarossi alla componente green.
+plotRGB(l2011, r=3, g=2, b=4, stretch="lin")
+
+
 
 
 
