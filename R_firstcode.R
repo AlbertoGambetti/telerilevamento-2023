@@ -70,7 +70,8 @@ plot(l2011[[4]], col=cln)
 
 dev.off()
 
-
+# RGB plotting
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin") #lultimo parametro stretch serve oer allargare la gamma dei valori visualizzati
 
 
 
