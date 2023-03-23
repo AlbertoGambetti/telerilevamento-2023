@@ -43,7 +43,7 @@ dev.off()
 
 #creo un multi frame con la funzione mf, voglio 2 righe una del colore rosso ed una degli infrarossi impilate lungo un unica clonna
 #plotting several bands in a multiframe
-par(mfrow=c(2,1))
+par(mfrow=c(2,1))# uso 2 righe, 1 colonna
 plot(l2011[[3]], col=cl)
 plot(l2011[[4]], col=cl)
 
@@ -71,7 +71,7 @@ plot(l2011[[4]], col=cln)
 dev.off()
 
 # RGB plotting
-plotRGB(l2011, r=3, g=2, b=1, stretch="lin") #lultimo parametro stretch serve oer allargare la gamma dei valori visualizzati
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin")# lultimo parametro stretch serve per allargare la gamma dei valori visualizzati
 plotRGB(l2011, r=4, g=3, b=2, stretch="lin")# ho assegnato la banda 4 degli infrarossi alla componente red.
 plotRGB(l2011, r=3, g=4, b=2, stretch="lin")# ho assegnato la banda 4 degli infrarossi alla componente green.
 plotRGB(l2011, r=3, g=2, b=4, stretch="lin")
@@ -83,17 +83,45 @@ plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
 
 #histogram stretching 
 par(mfrow=c(2,1))
-plotRGB(l2011, r=3, g=2, b=1, stretch="hist")
+plotRGB(l2011, r=3, g=2, b=1, stretch="hist")# lo stretch hist mi crea molta più differenza tra i valori mediani
 plotRGB(l2011, r=4, g=3, b=2, stretch="hist")
 
-#stretch linear vs stretche histogram 
+#Linear vs. Histogram stretching
 par(mfrow=c(2,1))
 plotRGB(l2011, r=4, g=2, b=1, stretch="lin")
 plotRGB(l2011, r=4, g=3, b=2, stretch="hist")
 
+# Exercise: plot the NIR band
+plot(l2011[[4]])
 
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin")
+plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
+plotRGB(l2011, r=3, g=4, b=2, stretch="lin")
+plotRGB(l2011, r=3, g=2, b=4, stretch="lin")
 
+# Exercise: import the 1988 image
+l1988 <- brick("p224r63_1988_masked.grd")
+l1988
 
+# Exercise: plot in RGB space (natural color)
+plotRGB(l1988, r=3, g=2, b=1, stretch="lin")
+plotRGB(l1988, r=4, g=3, b=2, stretch="lin")
 
+plotRGB(l1988, 4, 3, 2, stretch="lin")# posso ommetere di scrivere r= g= b=... mantenendo però sempre lo stesso ordine desiderato
 
+# multiframe
+par(mfrow=c(2,1))
+plotRGB(l1988, 4, 3, 2, stretch="lin")
+plotRGB(l2011, 4, 3, 2, stretch="lin")
+
+dev.off()
+
+plotRGB(l1988, 4, 3, 2, stretch="hist")
+
+# Multiframe with 4 images
+par(mfrow=c(2,2))
+plotRGB(l1988, 4, 3, 2, stretch="lin")
+plotRGB(l2011, 4, 3, 2, stretch="lin")
+plotRGB(l1988, 4, 3, 2, stretch="hist")
+plotRGB(l2011, 4, 3, 2, stretch="hist")
 
