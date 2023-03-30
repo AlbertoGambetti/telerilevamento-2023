@@ -66,13 +66,20 @@ cld<- colorRampPalette(c("blue","white","red")) (100)
 plot(difdvi, col=cld)#the red areas indicate the destruction of the forest
 
 # NDVI serve per normalizzare il DVI da -1 a 1, questo mi oermette di fare confronti tra le immagini ad 8 bit e quelle a 16 bit
+# il numero di bit in un immagine indica la risoluzione radiometrica
 # più l'NDVI è alto più indica un buono stato di salute delle piante, più è basso più indica un cattivo stato di salute
 
+# NDVI 1992
+ndvi1992 = dvi1992 / (l1992[[1]] + l1992[[2]])
+plot(ndvi1992, col=cl1992)
 
+# NDVI 2006
+ndvi2006 = dvi2006 / (l2006[[1]] + l2006[[2]])
+plot(ndvi2006, col=cl2006)
 
-
-
-
+# Multitemporal analisis
+difndvi = ndvi1992 - ndvi2006
+plot(difndvi, col=cld)
 
 
 
