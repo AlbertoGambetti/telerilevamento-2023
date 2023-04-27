@@ -2,8 +2,11 @@
 
 # Loading the required packages
 library(raster) # or require()
+#install.packages("patchwork")
 library(patchwork)
 library(ggplot2)
+#install.packages("viridis")
+library(viridis)
 
 # Setting the working directory for macOS
 setwd("~/Documents/lab")
@@ -22,3 +25,41 @@ mean3 <- focal(nir, matrix(1/9, 3, 3), fun=mean) # calculating the mean value
 
 sd3 <- focal(nir,matrix(1/9, 3, 3), fun=sd) # calculating standard deviation
 plot(sd3)
+
+sd3d <- as.data.frame(sd3, xy=TRUE) # we need it to be a dataframe
+sd3d
+
+ggplot() +
+geom_raster(sd3d, mapping=aes(x=x, y=y, fill=layer))+ # lets set the aestetic of the plot, y correspond to y in the image, x correspond to x,  these values are contained in the layer
+ggtitle("standard deviation moving window 3x3")
+
+# Using the Viridis package for different color palette
+ggplot()+
+geom_raster(sd3d, mapping=aes(x=x, y=y, fill=layer))+ # lets set the aestetic of the plot, y correspond to y in the image, x correspond to x,  these values are contained in the layer
+ggtitle("standard deviation moving window 3x3")+
+scale_fill_viridis()
+
+ggplot()+
+geom_raster(sd3d, mapping=aes(x=x, y=y, fill=layer))+ # lets set the aestetic of the plot, y correspond to y in the image, x correspond to x,  these values are contained in the layer
+ggtitle("standard deviation moving window 3x3")+
+scale_fill_viridis(option="cividis")
+
+ 
+ggplot()+
+geom_raster(sd3d, mapping=aes(x=x, y=y, fill=layer))+ # lets set the aestetic of the plot, y correspond to y in the image, x correspond to x,  these values are contained in the layer
+ggtitle("standard deviation moving window 3x3")+
+scale_fill_viridis(option="magma")
+
+#patcwork, plotting multiple images in a single image
+p1 <- ggplot()+
+geom_raster(sd3d, mapping=aes(x=x, y=y, fill=layer))+ # lets set the aestetic of the plot, y correspond to y in the image, x correspond to x,  these values are contained in the layer
+ggtitle("standard deviation moving window 3x3")+
+scale_fill_viridis(option="cividis")
+
+ 
+p2 <- ggplot()+
+geom_raster(sd3d, mapping=aes(x=x, y=y, fill=layer))+ # lets set the aestetic of the plot, y correspond to y in the image, x correspond to x,  these values are contained in the layer
+ggtitle("standard deviation moving window 3x3")+
+scale_fill_viridis(option="magma")
+
+p1+p2
