@@ -64,3 +64,27 @@ points(presences, pch=19)# we can observe that this species likes high humidity
 # plotting the vegetation with on top the presences of the species
 plot(preds$vegetation, col=cl)
 points(presences, pch=19)# this species search protection in the vegetation cover
+
+
+# with the predictors and the presence or absence of species we can make a model to predict if a species could be present in an area
+
+# model
+# set the data for the sdm
+datasdm <- sdmData(train=species, predictors=preds)
+
+# model
+m1 <- sdm(Occurrence ~ elevation + precipitation + temperature + vegetation, data=datasdm, methods = "glm")
+
+# make the raster output layer
+p1 <- predict(m1, newdata=preds)
+plot(p1, col=cl) # we just made a map that predicts the presence of the specie in analisys
+points(presences, pch=19)
+# the blue zones are where there is a low probability of presence of the specie
+
+# add to the stack
+s1 <- stack(preds,p1)
+plot(s1, col=cl)# we have plottet togheter the 4 predictors and the final prediction map
+
+# changing the name of the prediction map
+names(s1[[5]]) <- c('model')
+plot(s1, col=cl)
