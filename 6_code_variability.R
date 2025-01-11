@@ -43,7 +43,6 @@ ggplot()+
 geom_raster(sd3d, mapping=aes(x=x, y=y, fill=layer))+ # lets set the aestetic of the plot, y correspond to y in the image, x correspond to x,  these values are contained in the layer
 ggtitle("standard deviation moving window 3x3")+
 scale_fill_viridis(option="cividis")
-
  
 ggplot()+
 geom_raster(sd3d, mapping=aes(x=x, y=y, fill=layer))+ # lets set the aestetic of the plot, y correspond to y in the image, x correspond to x,  these values are contained in the layer
@@ -63,3 +62,16 @@ ggtitle("standard deviation moving window 3x3")+
 scale_fill_viridis(option="magma")
 
 p1+p2
+
+# Exercise: plot the original image (nir) and its standard deviation
+nird <- as.data.frame(nir, xy = T)
+
+p3 <- ggplot() +
+  geom_raster(nird,
+              mapping = aes(x = x, y = y, fill = sentinel_1)) +
+  scale_fill_viridis(option = "cividis") +
+  ggtitle("NIR via the cividis colour scale")
+
+p3
+
+p3 + p1
