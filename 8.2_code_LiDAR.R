@@ -11,8 +11,8 @@ library(viridis)
 library(ggplot2)
 library(patchwork)
 
-# Set working directory in Windows
-setwd("C:/lab/lidar")
+# Setting the working directory for macOS
+setwd("~/Documents/lab")
 
 
 # Digital Surface Model 2013 ----
