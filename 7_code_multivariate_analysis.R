@@ -53,12 +53,17 @@ scale_fill_viridis() # direction=-1 in case of reverse colour ramp
 # focal sd
 sd3 <- focal(pci[[1]], matrix(1/9, 3, 3), fun=sd)
 
+# Coerce into a datafram
 sd3d <- as.data.frame(sd3, xy=T)
 
 ggplot() +
 geom_raster(sd3d, mapping=aes(x=x, y=y, fill=layer)) +
 scale_fill_viridis()
 
+# speeding up analyses
+# aggregate cells: re-sampling
+senres <- aggregate(sen, fact = 10)
 
+# then repeat the PCA analysis
 
 
