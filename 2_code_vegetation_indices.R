@@ -40,7 +40,7 @@ l2006 <- brick("defor2_.png")
 #plot
 plotRGB(l2006, 1, 2, 3, stretch="Lin")
 
-#exercise: plot the image from 1992 ontop of that of 2006
+#exercise: plot the image from 1992 on top of the 2006 one
 par(mfrow=c(2,1))
 plotRGB(l1992, 1, 2, 3, stretch="lin")
 plotRGB(l2006, 1, 2, 3, stretch="Lin")
@@ -65,7 +65,7 @@ difdvi = dvi1992 - dvi2006# lets calculate a multitemporal DVI between the 1992 
 cld<- colorRampPalette(c("blue","white","red")) (100)
 plot(difdvi, col=cld)#the red areas indicate the destruction of the forest
 
-# NDVI serve per normalizzare il DVI da -1 a 1, questo mi oermette di fare confronti tra le immagini ad 8 bit e quelle a 16 bit
+# NDVI serve per normalizzare il DVI da -1 a 1, questo mi permette di fare confronti tra le immagini ad 8 bit e quelle a 16 bit
 # il numero di bit in un immagine indica la risoluzione radiometrica
 # più l'NDVI è alto più indica un buono stato di salute delle piante, più è basso più indica un cattivo stato di salute
 
