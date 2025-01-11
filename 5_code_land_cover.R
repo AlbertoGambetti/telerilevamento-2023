@@ -112,7 +112,7 @@ ggtitle("Year 2006")
 
 p1 + p2
 
-#----- same range! Do not lie with stats!
+# Use of patchwork to compare the plots
 
 p1 <- ggplot(percentages, aes(x=cover, y=percent1992, color=cover)) +
 geom_bar(stat="identity", fill="white") +
@@ -125,3 +125,4 @@ ggtitle("Year 2006") +
 ylim(c(0,100))
 
 p1 + p2
+# in order to standardize the y axes of the 2 plots we use ylim() function
