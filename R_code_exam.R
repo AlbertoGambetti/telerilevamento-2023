@@ -484,5 +484,5 @@ classes %>%
 ggsave("plot_scatter.png", width = 2000, height = 1350, units = "px")
 
 # in questa area dei monti fagaras è possibile vedere come ci sia un continuo aumento della deforestazione
-# e dell' urbanizzazione nel periodo analizzato, nonostante si tratti di aree protette.
-# Purtroppo non è possibile notare le azioni di riforestazione, probabilmente perchè sono troppo recenti.
+# e dell' urbanizzazione nel periodo analizzato, nonostante si tratti anche di aree protette.
+# Purtroppo non è possibile notare le azioni di riforestazione, probabilmente perchè troppo recenti.
